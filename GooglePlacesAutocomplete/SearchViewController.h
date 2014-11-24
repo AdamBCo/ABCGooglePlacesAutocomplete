@@ -1,5 +1,5 @@
 //
-//  SearchTableViewController.h
+//  SearchViewController.h
 //  GooglePlacesAutocomplete
 //
 //  Created by Adam Cooper on 11/3/14.
@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SelectedLocation.h"
 
-@interface SearchTableViewController : UITableViewController
+@interface SearchViewController : UITableViewController
+
+@property SelectedLocation *selectedLocation;
 
 @end

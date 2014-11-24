@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		6649BF141A083C84007B447B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6649BF131A083C84007B447B /* main.m */; };
 		6649BF171A083C84007B447B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6649BF161A083C84007B447B /* AppDelegate.m */; };
-		6649BF1A1A083C84007B447B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6649BF191A083C84007B447B /* ViewController.m */; };
 		6649BF1D1A083C84007B447B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6649BF1B1A083C84007B447B /* Main.storyboard */; };
 		6649BF1F1A083C84007B447B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6649BF1E1A083C84007B447B /* Images.xcassets */; };
 		6649BF221A083C84007B447B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6649BF201A083C84007B447B /* LaunchScreen.xib */; };
 		6649BF2E1A083C84007B447B /* GooglePlacesAutocompleteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6649BF2D1A083C84007B447B /* GooglePlacesAutocompleteTests.m */; };
-		6649BF391A083CB3007B447B /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6649BF381A083CB3007B447B /* SearchTableViewController.m */; };
+		6649BF391A083CB3007B447B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6649BF381A083CB3007B447B /* SearchViewController.m */; };
+		66C6697C1A22F5A500BE9967 /* SelectedLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C6697B1A22F5A500BE9967 /* SelectedLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,16 +33,16 @@
 		6649BF131A083C84007B447B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6649BF151A083C84007B447B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6649BF161A083C84007B447B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6649BF181A083C84007B447B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6649BF191A083C84007B447B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6649BF1C1A083C84007B447B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6649BF1E1A083C84007B447B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6649BF211A083C84007B447B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6649BF271A083C84007B447B /* GooglePlacesAutocompleteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GooglePlacesAutocompleteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6649BF2C1A083C84007B447B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6649BF2D1A083C84007B447B /* GooglePlacesAutocompleteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GooglePlacesAutocompleteTests.m; sourceTree = "<group>"; };
-		6649BF371A083CB3007B447B /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
-		6649BF381A083CB3007B447B /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		6649BF371A083CB3007B447B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		6649BF381A083CB3007B447B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		66C6697A1A22F5A500BE9967 /* SelectedLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedLocation.h; sourceTree = "<group>"; };
+		66C6697B1A22F5A500BE9967 /* SelectedLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedLocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +86,10 @@
 			children = (
 				6649BF151A083C84007B447B /* AppDelegate.h */,
 				6649BF161A083C84007B447B /* AppDelegate.m */,
-				6649BF181A083C84007B447B /* ViewController.h */,
-				6649BF191A083C84007B447B /* ViewController.m */,
-				6649BF371A083CB3007B447B /* SearchTableViewController.h */,
-				6649BF381A083CB3007B447B /* SearchTableViewController.m */,
+				6649BF371A083CB3007B447B /* SearchViewController.h */,
+				6649BF381A083CB3007B447B /* SearchViewController.m */,
+				66C6697A1A22F5A500BE9967 /* SelectedLocation.h */,
+				66C6697B1A22F5A500BE9967 /* SelectedLocation.m */,
 				6649BF1B1A083C84007B447B /* Main.storyboard */,
 				6649BF1E1A083C84007B447B /* Images.xcassets */,
 				6649BF201A083C84007B447B /* LaunchScreen.xib */,
@@ -224,10 +224,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6649BF1A1A083C84007B447B /* ViewController.m in Sources */,
 				6649BF171A083C84007B447B /* AppDelegate.m in Sources */,
+				66C6697C1A22F5A500BE9967 /* SelectedLocation.m in Sources */,
 				6649BF141A083C84007B447B /* main.m in Sources */,
-				6649BF391A083CB3007B447B /* SearchTableViewController.m in Sources */,
+				6649BF391A083CB3007B447B /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +418,7 @@
 				6649BF331A083C84007B447B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6649BF341A083C84007B447B /* Build configuration list for PBXNativeTarget "GooglePlacesAutocompleteTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +427,7 @@
 				6649BF361A083C84007B447B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
