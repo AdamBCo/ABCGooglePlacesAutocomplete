@@ -1,6 +1,7 @@
 GooglePlacesAutocomplete
 ========================
-
+![drag](./images/sample1.png)
+![drag](./images/sample2.png)
 
 
 GooglePlacesAutocomplete is an easy to use location autocomplete feature that utilizes the Google Places API to suggest locations to the user.
@@ -9,15 +10,16 @@ To use GooglePlacesAutocomplete, please do the following:
 
 
 1. Add the follwing files to your project:
-  *SearchViewController.h
-  *SearchViewController.m
-  *SelectedLocation.h
-  *SelectedLocation.m
+        *SearchViewController.h
+        *SearchViewController.m
+        *SelectedLocation.h
+        *SelectedLocation.m
 
 2. Register for the Google Places API by following the linke provided below:
 https://code.google.com/apis/console
 
-3. Copy the API key and past it in the NSString *const apiKey = @"PASTE API KEY HERE";
+3. Copy the API key and paste it in the space provided on SearchViewController.m
+        *NSString *const apiKey = @"PASTE API KEY HERE";
 
 4. Create a ViewController and add a UITablView and UITableViewCell.
 
@@ -29,4 +31,4 @@ If you have any questions about the project, please don't hestiate to ask.
 
 Enjoy! :)
 
-- Adam
+Adam
