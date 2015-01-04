@@ -5,6 +5,7 @@ GooglePlacesAutocomplete is an easy to use location autocomplete feature that ut
 
 To use GooglePlacesAutocomplete, please do the following:
 
+
 1) Add the follwing files to your project:
 SearchViewController.h
 SearchViewController.m
