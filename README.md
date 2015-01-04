@@ -1,6 +1,6 @@
 GooglePlacesAutocomplete
 ========================
-GooglePlacesAutocomplete is an easy to use location autocomplete feature that utilizes the Google Places API to suggest locations that the user may be tying to search for. 
+GooglePlacesAutocomplete is an easy to use location autocomplete feature that utilizes the Google Places API to suggest locations to the user. 
 
 ![drag](./images/sample1.png)
 ![drag](./images/sample2.png)
