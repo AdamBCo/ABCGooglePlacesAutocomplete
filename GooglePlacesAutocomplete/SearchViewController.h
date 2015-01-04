@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SelectedLocation.h"
 
-@interface SearchViewController : UITableViewController
+@interface SearchViewController : UIViewController
 
 @property SelectedLocation *selectedLocation;
 
