@@ -42,7 +42,7 @@ typedef NS_ENUM(NSUInteger, TableViewSection){
     self.searchTextField.searchBarStyle = UISearchBarStyleProminent;
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                                     [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                                     [UIColor colorWithRed:0.157 green:0.220 blue:0.294 alpha:1.000], NSForegroundColorAttributeName,
                                                                      [UIFont fontWithName:@"HelveticaNeue-Thin" size:18.0], NSFontAttributeName, nil]];
 
     
