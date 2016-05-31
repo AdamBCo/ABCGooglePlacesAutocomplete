@@ -19,7 +19,7 @@ NSString *const apiKey = @"PASTE API KEY HERE";
 
 @implementation ABCGooglePlacesAPIClient
 
-+(instancetype)sharedInstance{
++(instancetype)sharedInstance {
     static ABCGooglePlacesAPIClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^(void){
@@ -33,7 +33,7 @@ NSString *const apiKey = @"PASTE API KEY HERE";
 #pragma mark - Network Methods
 
 -(void)retrieveGooglePlaceInformation:(NSString *)searchWord withCompletion:(void (^)(BOOL isSuccess, NSError *error))completion {
-
+    
     if (!searchWord) {
         return;
     }
@@ -51,14 +51,14 @@ NSString *const apiKey = @"PASTE API KEY HERE";
         
         NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&types=establishment|geocode&radius=500&language=en&key=%@",searchWord,apiKey];
         
-        NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
+        NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             NSDictionary *jSONresult = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];;
             
-            if (error || [jSONresult[@"status"] isEqualToString:@"NOT_FOUND"] || [jSONresult[@"status"] isEqualToString:@"REQUEST_DENIED"]){
-                if (!error){
+            if (error || [jSONresult[@"status"] isEqualToString:@"NOT_FOUND"] || [jSONresult[@"status"] isEqualToString:@"REQUEST_DENIED"]) {
+                if (!error) {
                     NSDictionary *userInfo = @{@"error":jSONresult[@"status"]};
                     NSError *newError = [NSError errorWithDomain:@"API Error" code:666 userInfo:userInfo];
                     completion(NO, newError);
@@ -66,20 +66,20 @@ NSString *const apiKey = @"PASTE API KEY HERE";
                 }
                 completion(NO, error);
                 return;
-            } else {
-                
-                NSArray *results = [jSONresult valueForKey:@"predictions"];
-                
-                for (NSDictionary *jsonDictionary in results) {
-                    ABCGoogleAutoCompleteResult *location = [[ABCGoogleAutoCompleteResult alloc] initWithJSONData:jsonDictionary];
-                    [self.searchResults addObject:location];
-                }
-                
-                [self.searchResultsCache setObject:self.searchResults forKey:searchWord];
-                
-                completion(YES, nil);
-                
-            }
+						      } else {
+                                  
+                                  NSArray *results = [jSONresult valueForKey:@"predictions"];
+                                  
+                                  for (NSDictionary *jsonDictionary in results) {
+                                      ABCGoogleAutoCompleteResult *location = [[ABCGoogleAutoCompleteResult alloc] initWithJSONData:jsonDictionary];
+                                      [self.searchResults addObject:location];
+                                  }
+                                  
+                                  [self.searchResultsCache setObject:self.searchResults forKey:searchWord];
+                                  
+                                  completion(YES, nil);
+                                  
+                              }
         }];
         
         [task resume];
@@ -87,24 +87,24 @@ NSString *const apiKey = @"PASTE API KEY HERE";
 }
 
 -(void)retrieveJSONDetailsAbout:(NSString *)place withCompletion:(void (^)(NSDictionary *placeInformation, NSError *error))completion {
-
+    
     
     NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?placeid=%@&key=%@",place,apiKey];
-    NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
+    NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-
+    
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         
-        if (error || [result[@"status"] isEqualToString:@"NOT_FOUND"] || [result[@"status"] isEqualToString:@"REQUEST_DENIED"]){
-            if (!error){
+        if (error || [result[@"status"] isEqualToString:@"NOT_FOUND"] || [result[@"status"] isEqualToString:@"REQUEST_DENIED"]) {
+            if (!error) {
                 NSDictionary *userInfo = @{@"error":result[@"status"]};
                 NSError *newError = [NSError errorWithDomain:@"API Error" code:666 userInfo:userInfo];
                 completion(nil, newError);
                 return;
-            }
+						      }
             
             
             
