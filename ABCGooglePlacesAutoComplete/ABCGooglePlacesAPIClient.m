@@ -87,31 +87,30 @@ NSString *const apiKey = @"PASTE API KEY HERE";
 }
 
 -(void)retrieveJSONDetailsAbout:(NSString *)place withCompletion:(void (^)(NSDictionary *placeInformation, NSError *error))completion {
-
     
     NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?placeid=%@&key=%@",place,apiKey];
+    NSLog(@"%@", urlString);
     NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-
+    
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         
-        if (error || [result[@"status"] isEqualToString:@"NOT_FOUND"] || [result[@"status"] isEqualToString:@"REQUEST_DENIED"]){
-            if (!error){
-                NSDictionary *userInfo = @{@"error":result[@"status"]};
-                NSError *newError = [NSError errorWithDomain:@"API Error" code:666 userInfo:userInfo];
-                completion(nil, newError);
-                return;
-            }
-            
-            
-            
+        if (error) {
             completion(nil, error);
             return;
+        }
+        
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        
+        if ([result[@"status"] isEqualToString:@"NOT_FOUND"] || [result[@"status"] isEqualToString:@"REQUEST_DENIED"]){
+            NSDictionary *userInfo = @{@"error":result[@"status"]};
+            NSError *newError = [NSError errorWithDomain:@"API Error" code:666 userInfo:userInfo];
+            completion(nil, newError);
+            return;
         }else{
-            
+            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
             NSDictionary *placeDictionary = [result valueForKey:@"result"];
             completion(placeDictionary, nil);
         }
